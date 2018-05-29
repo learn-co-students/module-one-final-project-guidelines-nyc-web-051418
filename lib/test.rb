@@ -4,13 +4,39 @@ prompt = TTY::Prompt.new
 pastel = Pastel.new
 font = TTY::Font.new(:starwars)
 
-trivia = RestClient.get('https://opentdb.com/api.php?amount=10&category=22&difficulty=easy')
-trivia_hash = JSON.parse(trivia)
 
+
+# App Title
 puts pastel.yellow(font.write("Pub Quiz"))
+
+# The user is prompted to enter their username. The database is called to check if the name exists. If it doesn't then a new user is added to the database. 
 name = prompt.ask('What is your username?')
 user = User.name_check(name)
-binding.pry
+
+# User selects category and difficulty
+category_hash = {
+  "General knowledge" => 9,
+  "Books" => 10,
+  "Film" => 11,
+  "Music" => 12,
+  "Television" => 14,
+  "Science: Computers" => 18,
+  "Sports" => 21,
+  "History" => 23,
+  "Celebrities" => 26,
+  "Geography" => 22
+}
+
+category = prompt.select("Pick a category",[category_hash.keys])
+difficulty = prompt.select("Choose your difficulty level",["easy","medium","hard"])
+num_questions = prompt.ask("Choose your number of questions")
+
+
+# Call up the Trivia API
+url = "https://opentdb.com/api.php?amount=#{num_questions}&category=#{category_hash[category]}&difficulty=#{difficulty}"
+# binding.pry
+trivia = RestClient.get(url)
+trivia_hash = JSON.parse(trivia)
 
 
 
