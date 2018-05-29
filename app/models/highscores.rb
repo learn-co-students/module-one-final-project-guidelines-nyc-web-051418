@@ -16,11 +16,11 @@ class Highscore < ActiveRecord::Base
       player_score_hash[user.name] = score
     end
     sorted_hash = player_score_hash.sort_by { |user, score| score}.reverse
-    counter = 1
-    sorted_hash.each do |user, score|
-      puts "#{counter}. #{user}: #{score}"
-      counter += 1
-    end
+
+    # Generates a table of high scores
+    table = TTY::Table.new ['Name','Score'], sorted_hash
+    puts table.render(:ascii)
+    # binding.pry
     # table = TTY::Table.new ['username', 'score'], #add rows later
   end
 
