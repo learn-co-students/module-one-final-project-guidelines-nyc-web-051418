@@ -1,8 +1,10 @@
 require_relative '../app/models/user.rb'
+require_relative '../app/models/highscores.rb'
 
 
 
-def game_method
+
+def game_method(user)
   prompt = TTY::Prompt.new
   pastel = Pastel.new
   font = TTY::Font.new(:starwars)
@@ -22,7 +24,7 @@ def game_method
 
   category = prompt.select("Pick a category",[category_hash.keys])
   difficulty = prompt.select("Choose your difficulty level",["easy","medium","hard"])
-  num_questions = prompt.ask("Choose your number of questions")
+  num_questions = prompt.ask("Choose your number of questions").to_i
 
 
   # Call up the Trivia API
@@ -48,4 +50,5 @@ def game_method
     end
     puts "Score = #{score}"
   end
+  Highscore.save_score(score,user,num_questions)
 end

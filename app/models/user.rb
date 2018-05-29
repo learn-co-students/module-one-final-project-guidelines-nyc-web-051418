@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
     user_check
     # binding.pry
   end
+
+  
+
 end

@@ -1,10 +1,12 @@
 require 'bundler'
 require 'pry'
 require 'tty-prompt'
+require 'tty-table'
 require 'pastel'
 require 'tty-font'
 require 'rest-client'
 require 'json'
+
 Bundler.require
 # require_relative './prompt.rb'
 
