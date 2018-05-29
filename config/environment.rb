@@ -6,6 +6,8 @@ require 'pastel'
 require 'tty-font'
 require 'rest-client'
 require 'json'
+require 'htmlentities'
+
 
 Bundler.require
 # require_relative './prompt.rb'

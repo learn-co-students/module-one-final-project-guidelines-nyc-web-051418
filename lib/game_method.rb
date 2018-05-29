@@ -35,18 +35,27 @@ def game_method(user)
 
 
 
+
   score = 0
   trivia_hash["results"].each do |question|
-    answers = [] << question["correct_answer"]
-    answers << question["incorrect_answers"]
+    coder = HTMLEntities.new
+
+
+    correct_answer = coder.decode(question["correct_answer"])
+    incorrect_answers = question["incorrect_answers"].map do |answer|
+      coder.decode(answer)
+    end
+    questions = coder.decode(question["question"])
+    answers = [] << correct_answer
+    answers << incorrect_answers
     answers.flatten
     answers = answers.shuffle
-    answer = prompt.select(question["question"], [answers])
-    if answer == question["correct_answer"]
+    answer = prompt.select(questions, [answers])
+    if answer == correct_answer
       puts pastel.black.on_bright_green('Correct')
       score += 1
     else
-      puts pastel.black.on_red("False")
+      puts pastel.black.on_red("False-- Correct answer is #{correct_answer}")
     end
     puts "Score = #{score}"
   end
