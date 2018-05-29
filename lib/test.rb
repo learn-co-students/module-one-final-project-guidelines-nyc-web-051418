@@ -9,7 +9,8 @@ trivia_hash = JSON.parse(trivia)
 
 puts pastel.yellow(font.write("Pub Quiz"))
 name = prompt.ask('What is your username?')
-User.name_check(name)
+user = User.name_check(name)
+binding.pry
 
 
 
