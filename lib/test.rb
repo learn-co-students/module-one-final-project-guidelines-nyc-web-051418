@@ -19,7 +19,7 @@ initial_menu = prompt.select("What would you like to do?",["Play", "High Scores"
   if initial_menu == "Play"
     game_method(user)
   elsif initial_menu == "High Scores"
-    puts "display high score table"
+    Highscore.show_scores
   else
     puts "allow user to change default settings"
   end
