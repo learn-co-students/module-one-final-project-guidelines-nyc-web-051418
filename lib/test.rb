@@ -18,7 +18,7 @@ puts "Welcome, #{user.name}!"
 initial_menu = prompt.select("What would you like to do?",["Play", "High Scores", "Change Settings"])
   if initial_menu == "Play"
     game_method(user)
-  elsif initial_menu == "High Scores"
+  elsif initial_menu == "See High Scores"
     Highscore.show_scores
   else
     puts "allow user to change default settings"

@@ -51,4 +51,5 @@ def game_method(user)
     puts "Score = #{score}"
   end
   Highscore.save_score(score,user,num_questions)
+  Highscore.show_scores
 end
