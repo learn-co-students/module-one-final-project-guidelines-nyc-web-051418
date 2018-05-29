@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
     # binding.pry
   end
 
-  
+
 
 end
