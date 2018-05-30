@@ -3,6 +3,7 @@ require_relative 'game_method.rb'
 require_relative '../app/models/highscores.rb'
 require_relative '../app/models/questions.rb'
 require_relative '../app/models/answers.rb'
+require_relative '../app/models/stats.rb'
 
 prompt = TTY::Prompt.new
 pastel = Pastel.new
@@ -17,11 +18,11 @@ name = prompt.ask('What is your username?')
 user = User.name_check(name)
 puts "Welcome, #{user.name}!"
 
-initial_menu = prompt.select("What would you like to do?",["Play", "See High Scores", "Change Settings"])
+initial_menu = prompt.select("What would you like to do?",["Play", "See High Scores", "Player Stats"])
   if initial_menu == "Play"
     game_method(user)
   elsif initial_menu == "See High Scores"
     Highscore.show_scores
   else
-    puts "allow user to change default settings"
+    Stats.call_stats(user)
   end
