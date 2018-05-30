@@ -37,5 +37,6 @@ class Stats < ActiveRecord::Base
       end
     end
     puts "Longest streak: #{streak}"
+
   end
 end
