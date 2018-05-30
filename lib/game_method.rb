@@ -44,7 +44,6 @@ def game_method(user)
     questions = coder.decode(question["question"])
     #stores questions in questions table
     quest = Question.create(user_id: user.id, category: category, difficulty: difficulty, question: questions)
-    # binding.pry
 
     answers = [] << correct_answer
     answers << incorrect_answers
@@ -61,7 +60,6 @@ def game_method(user)
       #stores 'true' in answers table
       Answer.create(question_id: Question.last.id, correct: true)
       quest.update(answer_id: Answer.last.id)
-      # binding.pry
     else
       puts pastel.black.on_red("False-- Correct answer is #{correct_answer}")
       #stores 'false' in answers table
@@ -75,5 +73,6 @@ def game_method(user)
   play_again = prompt.select("Would you like to play again?",["Yes", "No"])
   if play_again == "Yes"
     game_method(user)
+  else puts "Goodbye!"
   end
 end

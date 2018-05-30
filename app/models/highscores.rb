@@ -19,7 +19,4 @@ class Highscore < ActiveRecord::Base
     table = TTY::Table.new ['Name','Score'], sorted_hash
     puts table.render(:ascii)
   end
-
-
-
 end
