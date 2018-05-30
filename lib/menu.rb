@@ -9,7 +9,6 @@ pastel = Pastel.new
 font = TTY::Font.new(:starwars)
 
 
-
 # App Title
 puts pastel.white(font.write("Pub Quiz"))
 

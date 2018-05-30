@@ -42,7 +42,9 @@ def game_method(user)
       coder.decode(answer)
     end
     questions = coder.decode(question["question"])
-
+    #stores questions in questions table
+    Question.create(user_id: user.id, category: category, difficulty: difficulty, question: questions)
+    # binding.pry
 
     answers = [] << correct_answer
     answers << incorrect_answers
@@ -52,8 +54,13 @@ def game_method(user)
     if answer == correct_answer
       puts pastel.black.on_bright_green('Correct')
       score += 1
+      #stores 'true' in answers table
+      Answer.create(question_id: Question.last.id, correct?: true)
+      binding.pry
     else
       puts pastel.black.on_red("False-- Correct answer is #{correct_answer}")
+      #stores 'false' in answers table
+      Answer.create(question_id: Question.last.id, correct?: false)
     end
     puts "Score = #{score}"
   end
