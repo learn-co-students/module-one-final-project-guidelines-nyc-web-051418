@@ -23,6 +23,8 @@ initial_menu = prompt.select("What would you like to do?",["Play", "See High Sco
     game_method(user)
   elsif initial_menu == "See High Scores"
     Highscore.show_scores
-  else
+  elsif initial_menu == "Player Stats"
     Stats.call_stats(user)
+  else
+    Stats.reset(user)
   end

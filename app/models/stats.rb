@@ -14,11 +14,15 @@ class Stats < ActiveRecord::Base
     table = TTY::Table.new ['Difficulty','Count'], difficulty_hash
     puts table.render(:ascii)
 
-    # Number of questions answered
+    # Number of questions answered & Percentage Correct
     puts "Number of questions answered: #{user.answered}"
     puts "Percentage correct: #{100*user.correct/user.answered}%"
+    
+    ActiveRecord::Base.connection.execute("SELECT * FROM users INNER JOIN questions ON questions.user_id = users.id INNER JOIN answers ON answers.question_id = questions.id")
+  end
 
-    # Percentage correct
-    # binding.pry
+  def self.reset(user)
+    user.update(answered: 0, correct: 0)
+    puts "Your statistcs have been reset!"
   end
 end
