@@ -52,24 +52,20 @@ def game_method(user)
     answers = answers.shuffle
     answer = prompt.select(questions, [answers])
 
-    # Increases current user answered counter by 1
-    user.update(answered: user.answered+1)
-
     if answer == correct_answer
       puts pastel.black.on_bright_green('Correct')
 
       # Increases current user correct counter by 1
-      user.update(correct: user.correct+1)
       score += 1
 
       #stores 'true' in answers table
-      Answer.create(question_id: Question.last.id, correct?: true)
+      Answer.create(question_id: Question.last.id, correct: true)
       quest.update(answer_id: Answer.last.id)
       # binding.pry
     else
       puts pastel.black.on_red("False-- Correct answer is #{correct_answer}")
       #stores 'false' in answers table
-      Answer.create(question_id: Question.last.id, correct?: false)
+      Answer.create(question_id: Question.last.id, correct: false)
       quest.update(answer_id: Answer.last.id)
     end
     puts "Score = #{score}"

@@ -1,5 +1,8 @@
 class Stats < ActiveRecord::Base
   def self.call_stats(user)
+    # Joined User -> Answers table
+    user_answers = User.joins(:answers).select('questions.*,answers.*').where("users.id = ?",user.id)
+
     # Category Stats
     category_hash = Question.where(user_id: user.id).group(:category).count
     category_hash = category_hash.sort_by { |category, count| count}.reverse
@@ -15,14 +18,10 @@ class Stats < ActiveRecord::Base
     puts table.render(:ascii)
 
     # Number of questions answered & Percentage Correct
-    puts "Number of questions answered: #{user.answered}"
-    puts "Percentage correct: #{100*user.correct/user.answered}%"
-    
-    ActiveRecord::Base.connection.execute("SELECT * FROM users INNER JOIN questions ON questions.user_id = users.id INNER JOIN answers ON answers.question_id = questions.id")
+    correct_answers = user_answers.where("correct = 't'").count(:correct)
+    total_answers = user_answers.count(:correct)
+    puts "Number of questions answered: #{total_answers}"
+    puts "Percentage of correct answers: #{100*correct_answers/total_answers}%"
   end
-
-  def self.reset(user)
-    user.update(answered: 0, correct: 0)
-    puts "Your statistcs have been reset!"
-  end
+  
 end

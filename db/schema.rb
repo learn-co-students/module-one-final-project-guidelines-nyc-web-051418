@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180530175749) do
+ActiveRecord::Schema.define(version: 20180530191223) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
-    t.boolean "correct?"
+    t.boolean "correct"
   end
 
   create_table "highscores", force: :cascade do |t|
@@ -33,9 +33,7 @@ ActiveRecord::Schema.define(version: 20180530175749) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "name",     null: false
-    t.integer "answered"
-    t.integer "correct"
+    t.string "name", null: false
   end
 
 end
