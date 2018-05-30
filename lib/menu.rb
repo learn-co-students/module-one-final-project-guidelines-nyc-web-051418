@@ -1,5 +1,8 @@
 require_relative '../app/models/user.rb'
 require_relative 'game_method.rb'
+require_relative '../app/models/highscores.rb'
+require_relative '../app/models/questions.rb'
+require_relative '../app/models/answers.rb'
 
 prompt = TTY::Prompt.new
 pastel = Pastel.new

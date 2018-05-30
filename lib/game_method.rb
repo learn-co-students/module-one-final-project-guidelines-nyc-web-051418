@@ -29,23 +29,21 @@ def game_method(user)
 
   # Call up the Trivia API
   url = "https://opentdb.com/api.php?amount=#{num_questions}&category=#{category_hash[category]}&difficulty=#{difficulty}"
-  # binding.pry
   trivia = RestClient.get(url)
   trivia_hash = JSON.parse(trivia)
 
 
-
-
   score = 0
   trivia_hash["results"].each do |question|
+    #reformats symbols to be readable
     coder = HTMLEntities.new
-
-
     correct_answer = coder.decode(question["correct_answer"])
     incorrect_answers = question["incorrect_answers"].map do |answer|
       coder.decode(answer)
     end
     questions = coder.decode(question["question"])
+
+
     answers = [] << correct_answer
     answers << incorrect_answers
     answers.flatten
