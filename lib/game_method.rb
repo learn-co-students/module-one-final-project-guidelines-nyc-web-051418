@@ -1,10 +1,3 @@
-require_relative '../app/models/user.rb'
-require_relative '../app/models/highscores.rb'
-require_relative 'return_to_menu.rb'
-
-
-
-
 def game_method(user)
   prompt = TTY::Prompt.new
   pastel = Pastel.new
@@ -26,6 +19,9 @@ def game_method(user)
   category = prompt.select("Pick a category",[category_hash.keys])
   difficulty = prompt.select("Choose your difficulty level",["easy","medium","hard"])
   num_questions = prompt.ask("Choose your number of questions").to_i
+  if num_questions == 0
+    num_questions = 10
+  end
 
 
   # Call up the Trivia API

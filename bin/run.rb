@@ -1,4 +1,6 @@
 require_relative '../config/environment'
-require_relative '../lib/menu.rb'
+require_all 'lib'
+require_all 'app/models'
+
 
 menu_method

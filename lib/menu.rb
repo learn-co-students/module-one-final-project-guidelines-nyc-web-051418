@@ -1,19 +1,9 @@
-require_relative '../app/models/user.rb'
-require_relative 'game_method.rb'
-require_relative '../app/models/highscores.rb'
-require_relative '../app/models/questions.rb'
-require_relative '../app/models/answers.rb'
-require_relative '../app/models/stats.rb'
-require_relative 'return_to_menu.rb'
-
-
-
 def menu_method
   prompt = TTY::Prompt.new
   pastel = Pastel.new
   font = TTY::Font.new(:starwars)
   # App Title
-  puts pastel.white(font.write("Pub Quiz"))
+  puts pastel.white(font.write("Pub Trivia"))
 
   # The user is prompted to enter their username. The database is called to check if the name exists. If it doesn't then a new user is added to the database.
   name = prompt.ask('What is your username?')
