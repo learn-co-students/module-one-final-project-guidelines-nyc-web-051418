@@ -25,4 +25,8 @@ initial_menu = prompt.select("What would you like to do?",["Play", "See High Sco
     Highscore.show_scores
   else
     Stats.call_stats(user)
+    play_a_game = prompt.select("Would you like to play?",["Yes", "No"])
+    if play_a_game == "Yes"
+      game_method(user)
+    end
   end

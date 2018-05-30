@@ -72,4 +72,8 @@ def game_method(user)
   end
   Highscore.save_score(score,user,num_questions)
   Highscore.show_scores
+  play_again = prompt.select("Would you like to play again?",["Yes", "No"])
+  if play_again == "Yes"
+    game_method(user)
+  end
 end
