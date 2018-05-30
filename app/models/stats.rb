@@ -22,6 +22,20 @@ class Stats < ActiveRecord::Base
     total_answers = user_answers.count(:correct)
     puts "Number of questions answered: #{total_answers}"
     puts "Percentage of correct answers: #{100*correct_answers/total_answers}%"
+
+    # Find the longest streak
+    streak = 0
+    counter = 0
+    user_answers.each do |answer|
+      if answer.correct == "t"
+        counter += 1
+      else
+        if counter > streak
+          streak = counter
+        end
+        counter = 0
+      end
+    end
+    puts "Longest streak: #{streak}"
   end
-  
 end
