@@ -1,5 +1,6 @@
 require_relative '../app/models/user.rb'
 require_relative '../app/models/highscores.rb'
+require_relative 'return_to_menu.rb'
 
 
 
@@ -70,9 +71,5 @@ def game_method(user)
   end
   Highscore.save_score(score,user,num_questions)
   Highscore.show_scores
-  play_again = prompt.select("Would you like to play again?",["Yes", "No"])
-  if play_again == "Yes"
-    game_method(user)
-  else puts "Goodbye!"
-  end
+  return_to_menu
 end
