@@ -10,6 +10,7 @@ Run 'ruby bin/run.rb'
 
 <img src="https://media.giphy.com/media/l3vQXgxL4zUIU6dHi/giphy.gif" height="600px"/>
 
+<iframe width="630" height="355" src="https://www.useloom.com/embed/8f64a04c9493405b80886ba1b5c6c0cc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 License:
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
