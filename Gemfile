@@ -10,3 +10,4 @@ gem "rest-client"
 gem "rake"
 gem "terminal-table"
 gem "tty-prompt"
+gem 'colorize'
