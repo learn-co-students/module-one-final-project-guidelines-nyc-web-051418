@@ -8,7 +8,7 @@ Download or clone the repository.
 Run ‘bundle install’ to install the required gems.
 Run 'ruby bin/run.rb'
 
-<iframe src=“https://giphy.com/embed/dYDdvCQGyoLcY” width=“480" height=“480” frameBorder=“0" class=“giphy-embed” allowFullScreen></iframe><p><a href=“https://giphy.com/gifs/bill-loves-wurtz-dYDdvCQGyoLcY”>via GIPHY</a></p>
+<img src=“https://media.giphy.com/media/dYDdvCQGyoLcY/giphy.gif” height=“600px”/>
 
 License:
 
