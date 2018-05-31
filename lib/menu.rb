@@ -1,16 +1,19 @@
-def menu_method
-  prompt = TTY::Prompt.new
+# App Title
+def app_title
   pastel = Pastel.new
   font = TTY::Font.new(:starwars)
-  # App Title
-  puts pastel.white(font.write("Pub Trivia"))
+  puts pastel.white(font.write("Pub Trivia"))  
+end
+
+def menu_method
+  prompt = TTY::Prompt.new
 
   # The user is prompted to enter their username. The database is called to check if the name exists. If it doesn't then a new user is added to the database.
-
-  name = prompt.ask('What is your username?')
-  if name == nil
-    menu_method
+  name = nil
+  while name == nil
+    name = prompt.ask('What is your username?')
   end
+
   user = User.name_check(name)
   puts "Welcome, #{user.name}!"
 

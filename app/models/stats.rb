@@ -5,6 +5,7 @@ class Stats < ActiveRecord::Base
     user_answers = User.joins(:answers).select('questions.*,answers.*').where("users.id = ?",user.id)
 
     # Category Stats
+    puts "Categories Stats (ranked)"
     category_hash = Question.where(user_id: user.id).group(:category).count
     category_hash = category_hash.sort_by { |category, count| count}.reverse
     table = TTY::Table.new ['Category','Count'], category_hash
@@ -12,6 +13,7 @@ class Stats < ActiveRecord::Base
     puts "\n \n"
 
     # Difficulty Stats
+    puts "Difficulty Stats (ranked)"
     difficulty_hash = Question.where(user_id: user.id).group(:difficulty).count
     difficulty_hash = difficulty_hash.sort_by { |difficulty, count| count}.reverse
 
@@ -48,7 +50,7 @@ class Stats < ActiveRecord::Base
     puts "\n \n"
   end
 
-
+  # Clears current player statistics and data
   def self.clear_stats(user)
     prompt = TTY::Prompt.new
     are_you_sure = prompt.select("Are you sure you want to delete statistics?",["No", "Yes"])
