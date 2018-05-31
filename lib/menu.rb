@@ -6,7 +6,11 @@ def menu_method
   puts pastel.white(font.write("Pub Trivia"))
 
   # The user is prompted to enter their username. The database is called to check if the name exists. If it doesn't then a new user is added to the database.
+
   name = prompt.ask('What is your username?')
+  if name == nil
+    menu_method
+  end
   user = User.name_check(name)
   puts "Welcome, #{user.name}!"
 

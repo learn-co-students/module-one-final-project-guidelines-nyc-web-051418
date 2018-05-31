@@ -56,12 +56,11 @@ class Stats < ActiveRecord::Base
         User.destroy(user.id)
         Question.where(user_id: user.id).destroy_all
         Highscore.where(user_id: user.id).destroy_all
-        new_user = User.create(name: user.name)
         puts "Deleted!"
         return_to_menu
       else
         return_to_menu
       end
-    end
+  end
 
 end
