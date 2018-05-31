@@ -38,8 +38,9 @@ def get_drinks_hash_from_id
     idx = 1
     while idx < 16
       ingredient = drink_hash["drinks"][0]["strIngredient#{idx}"]
+      measure = drink_hash["drinks"][0]["strMeasure#{idx}"]
       if ingredient != ""
-        new_ingredient = Ingredient.find_or_create_by(name: ingredient)
+        new_ingredient = Ingredient.find_or_create_by(name: ingredient, measure: measure)
         Recipe.create(drink_id: new_drink.id, ingredient_id: new_ingredient.id)
       end
       # if drink_hash["drinks"][0]["strIngredient#{idx}"] != ""
