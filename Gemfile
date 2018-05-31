@@ -10,3 +10,4 @@ gem "rake"
 gem "terminal-table"
 gem "tty-prompt"
 gem 'colorize'
+gem 'progress_bar'

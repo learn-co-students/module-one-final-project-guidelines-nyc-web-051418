@@ -19,6 +19,7 @@ GEM
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     equatable (0.5.0)
+    highline (1.7.10)
     hitimes (1.2.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -31,9 +32,13 @@ GEM
     minitest (5.10.1)
     necromancer (0.4.0)
     netrc (0.11.0)
+    options (2.3.2)
     pastel (0.7.2)
       equatable (~> 0.5.0)
       tty-color (~> 0.4.0)
+    progress_bar (1.2.0)
+      highline (~> 1.6)
+      options (~> 2.3.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -89,6 +94,7 @@ PLATFORMS
 DEPENDENCIES
   colorize
   json
+  progress_bar
   pry
   rake
   require_all

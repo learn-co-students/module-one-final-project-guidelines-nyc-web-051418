@@ -43,7 +43,7 @@ def scorecard
   Game.all.sort { |x, y| y[:score] <=> x[:score] }[0..14].each do |game|
     rows << [game.user.id, game.user.name, game.word.word, game.score]
   end
-  table = Terminal::Table.new title: 'Scoreboard', headings: ['Player ID', 'Username', 'Letters', 'Score'], rows: rows, style: { width: 80, padding_left: 3, border_x: '=', border_i: 'x' }
+  table = Terminal::Table.new title: "SCOREBOARD - TOP 15".colorize(color: :magenta, mode: :blink), headings: ["Player ID".colorize(color: :magenta, mode: :bold), "Username".colorize(color: :magenta, mode: :bold), "Letters".colorize(color: :magenta, mode: :bold), "Score".colorize(color: :magenta, mode: :bold)], rows: rows, style: {width: 80, padding_left: 3, border_x: "=", border_i: "x" }
     puts table
   menu
 end
