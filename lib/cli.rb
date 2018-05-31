@@ -78,5 +78,15 @@ def get_drink_name_by_ingredient
   puts "Drinks with #{ingredient[0].name}:"
   puts "\n"
   puts drinks_of_ingredient.map { |drink| drink.name }
-
+  puts "\n"
+  puts "1. View a drink"
+  puts "2. To input a differnet ingredient"
+  answer = gets.chomp
+  if answer == "1"
+    puts "Type the drink's name"
+    drink = gets.chomp
+    get_recipe_by_drink_name(drink)
+  elsif answer == "2"
+    get_drink_name_by_ingredient
+  end
 end
