@@ -12,7 +12,7 @@ Pub trivia is a CLI game where one player can log in, play ten different categor
 5. Play!
 
 
-###License:
+### License:
 
 This project is licensed under the ABC License - see the LICENSE.md file for details.
 
