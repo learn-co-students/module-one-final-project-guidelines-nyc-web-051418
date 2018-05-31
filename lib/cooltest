@@ -1,0 +1,7 @@
+# def xyz
+#   i = Ingredient.all.map { |x| x.name }.uniq
+#   u = i.map { |t| t.downcase if t.class ==  String}
+#
+#
+# end
+#
