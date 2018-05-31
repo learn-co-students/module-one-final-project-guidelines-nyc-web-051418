@@ -8,10 +8,16 @@ require_relative '../app/models/recipe.rb'
 
 
 def get_ordinary_drinks_id
- ordinary_drink = RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink")
- ordinary_drink_hash = JSON.parse(ordinary_drink)
- drink_names = ordinary_drink_hash["drinks"]
- drink_ids = drink_names.map { |x| x["idDrink"] }
+  drink_ids = []
+  ordinary_drink = RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink")
+  ordinary_drink_hash = JSON.parse(ordinary_drink)
+  cocktails = RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
+  cocktails_hash = JSON.parse(cocktails)
+  drink_names = ordinary_drink_hash["drinks"]
+  cocktail_names = cocktails_hash["drinks"]
+  drink_names.map { |x| drink_ids << x["idDrink"] }
+  cocktail_names.map { |x| drink_ids << x["idDrink"] }
+  drink_ids
 end
 
 def get_drinks_hash_from_id
