@@ -7,6 +7,33 @@ def all_drink_names
   puts drinks.sort
 end
 
+def get_recipe_by_drink_name(name)
+
+  drink = Drink.all.where(name: name)[0]
+
+  ingre = drink.ingredients.map { |ing| ing.name }.join(", ")
+  measures = drink.ingredients.map { |ing| ing.measure + ing.name }.join(", ")
+  puts "#{drink.name} is an #{drink.category} served in #{drink.glass} using #{ingre}"
+  puts "\n"
+  puts "Measures as follows: #{measures}"
+  puts "\n"
+  puts "Instructions for #{drink.name}:"
+  puts "\n"
+  puts "#{drink.instructions}"
+  puts "\n"
+  puts "1. Return to the drinks menu"
+  puts "2. Input new drink name"
+  answer = gets.chomp
+  if answer == "1"
+    all_drink_names
+  elsif answer == "2"
+    puts "Enter drink name:"
+    drink_name = gets.chomp
+    get_recipe_by_drink_name(drink_name)
+  end
+
+end
+
 def list_of_ibas
   drinks = Drink.all.map { |drink| drink.iba }
   selected_drinks = drinks.select { |drink| drink != nil }
@@ -40,8 +67,8 @@ def list_of_all_drinks_by_iba
 
     puts contemporary.map { |con| con.name }
   else
-    puts "Unvalid Answer!"
+    puts "Invalid Answer!"
+    list_of_all_drinks_by_iba
   end
-
 
 end
