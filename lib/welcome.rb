@@ -2,7 +2,7 @@ require_relative '../config/environment'
 
 def menu
   prompt = TTY::Prompt.new
-  user_select = prompt.select("Please select your choice?", %w(Play Scoreboard Quit))
+  user_select = prompt.select("\nPlease select your choice?", %w(Play Scoreboard Quit))
   if user_select == "Play"
     user=get_name
     play_game(user)
