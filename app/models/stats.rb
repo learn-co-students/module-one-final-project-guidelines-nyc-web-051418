@@ -47,4 +47,21 @@ class Stats < ActiveRecord::Base
     puts "Longest streak: #{streak}"
     puts "\n \n"
   end
+
+
+  def self.clear_stats(user)
+    prompt = TTY::Prompt.new
+    are_you_sure = prompt.select("Are you sure you want to delete statistics?",["No", "Yes"])
+      if are_you_sure == "Yes"
+        User.destroy(user.id)
+        Question.where(user_id: user.id).destroy_all
+        Highscore.where(user_id: user.id).destroy_all
+        new_user = User.create(name: user.name)
+        puts "Deleted!"
+        return_to_menu
+      else
+        return_to_menu
+      end
+    end
+
 end

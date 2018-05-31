@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :answers, through: :questions
   has_many :questions
 
-
+  # creates new user if name entered by user does not exist in database
   def self.name_check(name)
     user_check = self.find_by(name: name)
     if user_check == nil
