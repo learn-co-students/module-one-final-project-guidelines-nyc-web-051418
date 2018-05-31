@@ -11,15 +11,17 @@ def play_game(user = User.current_user)
         if anagram_array.include?(ans.downcase) == true
           anagram_array.delete(ans)
           score += ans.length
-          puts "\nGreat! You get #{score} points".colorize(color: :magenta)
+          puts "\nGreat! You get #{score} points\n".colorize(color: :magenta)
         else
-          puts "\nOops...that word is not an anagram. Please try another word.".colorize(color: :red)
+          puts "\nOops...that word is not an anagram. Please try another word.\n".colorize(color: :red)
           end
       end
       score
     end
   rescue Timeout::Error
     puts "\nSorry,you are out of time! You got #{score} points!".colorize(color: :magenta, mode: :blink)
+    puts "\nYou missed these words!" + " \n#{anagram_array.join(", ")}".colorize(color: :magenta, mode: :bold)
+    sleep(3)
   end
   Game.create(user: user, word: Word.last, score: score)
   play_again
