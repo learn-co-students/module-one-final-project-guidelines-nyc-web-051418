@@ -1,3 +1,4 @@
+require_relative '../config/environment'
 
 def create_random_letters
   vowels = %w[A E I O U]
@@ -24,8 +25,8 @@ def get_anagram_array_from_api
   api_return_array = api_call(word)
 
   if api_return_array.any? == true
-    puts "We will create our anagrams with #{word.chars.join(' ')}"
-    puts "There are #{api_return_array.length} anagrams to find!! \nTry to find as many as you can..."
+    puts "\nWe will create our anagrams with" + " #{word.chars.join(' ')}".colorize(color: :magenta, mode: :bold)
+    puts "\nThere are" + " #{api_return_array.length}".colorize(color: :magenta, mode: :bold) + " anagrams to find!! Try to find as many as you can...".colorize(mode: :bold)
   end
   Word.create(word: word)
   api_return_array

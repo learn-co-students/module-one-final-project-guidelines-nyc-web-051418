@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create(playername)
-    User.find_or_create_by(name: playername)
+    user = User.find_or_create_by(name: playername)
+    @@current_user = user
   end
 end

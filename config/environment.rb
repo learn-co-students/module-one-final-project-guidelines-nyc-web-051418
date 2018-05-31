@@ -14,3 +14,5 @@ require_all 'lib'
 
 old_logger = ActiveRecord::Base.logger
 ActiveRecord::Base.logger = nil
+
+PROMPT = TTY::Prompt.new(active_color: :magenta)
