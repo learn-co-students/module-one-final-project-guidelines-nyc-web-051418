@@ -47,11 +47,7 @@ def list_of_all_drinks_by_iba
   puts "3. Contemporary Classics"
   answer = gets.chomp
   if answer == "1"
-    # sql = <<-SQL
-    # SELECT name FROM drinks WHERE (iba = ?)
-    # SQL
-    #
-    # DB[:conn].execute(sql, "Unforgettables")
+
     unforgettables = Drink.all.where(iba: "Unforgettables")
 
     puts unforgettables.map { |unfo| unfo.name }
@@ -70,5 +66,17 @@ def list_of_all_drinks_by_iba
     puts "Invalid Answer!"
     list_of_all_drinks_by_iba
   end
+
+end
+
+def get_drink_name_by_ingredient
+  puts "Input ingredient name"
+  input_ingredient = gets.chomp
+  ingredient = Ingredient.where(name: input_ingredient)
+
+  drinks_of_ingredient = ingredient.map { |x| x.drinks }.flatten
+  puts "Drinks with #{ingredient[0].name}:"
+  puts "\n"
+  puts drinks_of_ingredient.map { |drink| drink.name }
 
 end
