@@ -23,6 +23,7 @@ def game_method(user)
   category = prompt.select("Pick a category",[category_hash.keys])
   difficulty = prompt.select("Choose your difficulty level",["easy","medium","hard"])
   num_questions = prompt.ask("Choose your number of questions", default: 10).to_i
+  puts "\n"
 
 
   # Call up the Trivia API using data retrieved from user
@@ -82,11 +83,13 @@ def game_method(user)
 
     # displays score after each question is answered
     puts "Score = #{score}"
+    puts "\n"
   end
 
 
   # saves score and displays high scores at end of game
   Highscore.save_score(score,user,num_questions)
   Highscore.show_scores
+  puts "\n"
   return_to_menu
 end
