@@ -8,7 +8,7 @@ Download or clone the repository.
 Run ‘bundle install’ to install the required gems.
 Run 'ruby bin/run.rb'
 
-<img src="https://media.giphy.com/media/dYDdvCQGyoLcY/giphy.gif" height="600px"/>
+<img src="https://media.giphy.com/media/l3vQXgxL4zUIU6dHi/giphy.gif" height="600px"/>
 
 License:
 
