@@ -10,7 +10,7 @@ def menu_method
   user = User.name_check(name)
   puts "Welcome, #{user.name}!"
 
-  initial_menu = prompt.select("What would you like to do?",["Play", "See High Scores", "Player Stats","Exit"])
+  initial_menu = prompt.select("What would you like to do?",["Play", "See High Scores", "Player Stats","Clear Player Statistics", "Exit"])
     if initial_menu == "Play"
       game_method(user)
     elsif initial_menu == "See High Scores"
@@ -22,6 +22,18 @@ def menu_method
       if play_a_game == "Yes"
         game_method(user)
       end
+    elsif initial_menu == "Clear Player Statistics"
+      are_you_sure = prompt.select("Are you sure you want to delete statistics?",["No", "Yes"])
+        if are_you_sure == "Yes"
+          User.destroy(user.id)
+          Question.where(user_id: user.id).destroy_all
+          Highscore.where(user_id: user.id).destroy_all
+          new_user = User.create(name: user.name)
+          puts "Deleted!"
+          return_to_menu
+        else
+          return_to_menu
+        end
     else
       puts "Goodbye!"
     end

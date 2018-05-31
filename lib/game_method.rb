@@ -1,7 +1,11 @@
+
 def game_method(user)
+  # Game formatting
   prompt = TTY::Prompt.new
   pastel = Pastel.new
   font = TTY::Font.new(:starwars)
+
+
   # User selects category and difficulty
   category_hash = {
     "General knowledge" => 9,
@@ -15,7 +19,6 @@ def game_method(user)
     "Celebrities" => 26,
     "Geography" => 22
   }
-
   category = prompt.select("Pick a category",[category_hash.keys])
   difficulty = prompt.select("Choose your difficulty level",["easy","medium","hard"])
   num_questions = prompt.ask("Choose your number of questions").to_i
@@ -24,15 +27,17 @@ def game_method(user)
   end
 
 
-  # Call up the Trivia API
+
+  # Call up the Trivia API using data retrieved from user
   url = "https://opentdb.com/api.php?amount=#{num_questions}&category=#{category_hash[category]}&difficulty=#{difficulty}"
   trivia = RestClient.get(url)
   trivia_hash = JSON.parse(trivia)
 
 
+  # game play
   score = 0
   trivia_hash["results"].each do |question|
-    #reformats symbols to be readable
+    #reformats symbols to be readable in command line
     coder = HTMLEntities.new
     correct_answer = coder.decode(question["correct_answer"])
     incorrect_answers = question["incorrect_answers"].map do |answer|

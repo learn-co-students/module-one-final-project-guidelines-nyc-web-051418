@@ -10,6 +10,7 @@ class Highscore < ActiveRecord::Base
     player_score_hash = {}
     score_hash.each do |user_id, score|
       user = User.find_by(id: user_id)
+      # binding.pry
       player_score_hash[user.name] = score
     end
 
