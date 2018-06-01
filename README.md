@@ -11,7 +11,7 @@ Have fun and check out the scoreboard for the top scores and top user scores!
 Select the time length for your games.
 Change the player name.
 
-## How to install & play:
+## How to install & play
 
 Download or clone the repository.
 Run ‘bundle install’ to install the required gems.
