@@ -26,4 +26,4 @@ https://medium.com/@a.carreras.c/cli-game-f3876687de53
 
 License:
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is poblic domain - see the LICENSE.html file for details.
