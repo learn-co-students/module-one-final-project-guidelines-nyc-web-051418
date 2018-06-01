@@ -1,6 +1,10 @@
+FONT = TTY::Font.new(:standard)
+PASTEL = Pastel.new
+
 def welcome
   puts "\n"
-  puts "Welcome to iBartend"
+  puts PASTEL.red(FONT.write("Welcome   to   iBartend"))
+  # puts "Welcome to iBartend"
   puts "\n"
   menu
 end
@@ -131,9 +135,9 @@ def list_of_all_drinks_by_iba
   puts "\n"
   puts "Choose an IBA:"
   puts "\n"
-  puts "1. Unforgettables"
-  puts "2. New Era Drinks"
-  puts "3. Contemporary Classics"
+  puts "Press 1 for Unforgettables"
+  puts "Press 2 for New Era Drinks"
+  puts "Press 3 for Contemporary Classics"
   puts "\n"
   answer = gets.chomp
   if answer == "1"
@@ -291,7 +295,7 @@ def find_drink_by_glass
   if input == "1"
     puts "Type in the drink name"
     drink_input = gets.chomp
-    # get_recipe_by_drink_name(drink_input)
+    get_recipe_by_drink_name(drink_input)
     # drinks = Drink.all.where(glass: answer && lower_case_answer)
     #
     # puts drinks.map { |drink| drink.name }.sort
@@ -303,5 +307,7 @@ def find_drink_by_glass
     menu
   else
     puts "Invalid input. Try again."
+    puts "\n"
+    find_drink_by_glass
   end
 end
