@@ -2,8 +2,8 @@
 require_relative '../config/environment.rb'
 
 # Pry request for testing
-binding.pry
-true
+# binding.pry
+# true
 
 ###### CODE ##########
 start

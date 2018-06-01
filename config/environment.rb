@@ -8,8 +8,10 @@ ActiveRecord::Base.logger = nil
 
 require_relative '../lib/play'
 require_relative '../lib/welcome_menu'
+require_relative '../lib/api_communicator'
 require_relative '../app/models/game'
 require_relative '../app/models/user'
 require_relative '../app/models/word'
-require 'terminal-table'
 require 'colorized_string'
+
+PROMPT = TTY::Prompt.new(active_color: :cyan)
