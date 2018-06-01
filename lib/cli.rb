@@ -11,14 +11,16 @@ end
 
 def menu
   puts "\n"
-  puts "Menu"
+  puts PASTEL.cyan.bold("Menu")
   puts "\n"
   puts "\n"
-  puts "Please select from the following options:"
+  puts PASTEL.magenta("Please select from the following options:")
+  puts "\n"
   puts "Press 1 for Drink Menu"
   puts "Press 2 for Ingredient List"
   puts "Press 3 for IBA Categories"
   puts "Press 4 for Glass Type"
+  puts "Press 0 if you've had enough"
   puts "\n"
   answer = gets.chomp
   if answer == "1"
@@ -29,6 +31,22 @@ def menu
     list_of_ibas
   elsif answer == "4"
     get_glass_types
+  elsif answer == "0"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts PASTEL.red("Hope you've enjoyed our bar! don't forget to tip your programmers!")
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
   else
     puts "\n"
     puts "Invalid input. Try again."
@@ -268,8 +286,8 @@ def get_glass_types
   # puts "\n"
   # find_drink_by_glass
   puts "\n"
-  drinks = Drink.all.map { |x| x.glass }
-  puts drinks.map { |drink| drink.split(" ").map { |word| word.capitalize }.join(" ") }.uniq.sort
+  puts Drink.all.map { |x| x.glass }.uniq.sort
+  # puts drinks.map { |drink| drink.split(" ").map { |word| word.capitalize }.join(" ") }.uniq.sort
   puts "\n"
   find_drink_by_glass
 end
@@ -278,10 +296,10 @@ def find_drink_by_glass
   puts "Input your glass type:"
   puts "\n"
   answer = gets.chomp
-  lower_case_answer = answer.split
-  lower = lower_case_answer[0] + " " + lower_case_answer[1].downcase
+  # lower_case_answer = answer.split
+  # lower = lower_case_answer[0] + " " + lower_case_answer[1].downcase
 
-  drinks = Drink.all.where(glass: answer || lower)
+  drinks = Drink.all.where(glass: answer)
   # binding.pry
   puts "\n"
   puts drinks.map { |drink| drink.name }.sort
