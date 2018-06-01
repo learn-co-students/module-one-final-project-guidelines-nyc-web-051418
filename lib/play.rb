@@ -28,7 +28,7 @@ def play_game(user = User.current_user)
 end
 
 def play_again
-  user_select = PROMPT.select("\nWhat do want to do?", %w[Play\ again Scoreboard Quit])
+  user_select = PROMPT.select("\nWhat do want to do?".colorize(mode: :bold), %w[Play\ again Scoreboard Quit])
   if user_select == 'Play again'
     play_game
   elsif user_select == 'Scoreboard'
