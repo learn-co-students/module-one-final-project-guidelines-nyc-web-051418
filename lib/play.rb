@@ -5,7 +5,7 @@ def play_game(user = User.current_user)
   anagram_array = get_anagram_array_from_api until anagram_array.any? == true
   score = 0
   begin
-    Timeout.timeout 20 do
+    Timeout.timeout 25 do
       loop do
         ans = gets.chomp
         if anagram_array.include?(ans.downcase) == true

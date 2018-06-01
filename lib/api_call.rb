@@ -26,10 +26,9 @@ def get_anagram_array_from_api
 
   if api_return_array.any? == true
     puts "\nWe will create our anagrams with" + " #{word.chars.join(' ')}".colorize(color: :magenta, mode: :bold)
-    puts "\nThere are" + " #{api_return_array.length}".colorize(color: :magenta, mode: :bold) + " anagrams to find!! Try to find as many as you can...You have 60 seconds!!...".colorize(color: :magenta, mode: :bold)
+    puts "\nThere are" + " #{api_return_array.length}".colorize(color: :magenta, mode: :bold) + " anagrams to find!! Try to find as many as you can...You have 25 seconds!!...".colorize(color: :magenta, mode: :bold)
     sleep(1)
     puts "\n GO!!! ".colorize(color: :magenta, mode: :blink)
-    bar = ProgressBar.new(100, :bar, :rate, :eta)
   end
   Word.create(word: word)
   api_return_array
