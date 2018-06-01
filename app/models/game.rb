@@ -1,3 +1,5 @@
+#this file holds the Game class and its class methods to retrieve information for the rankings.
+
 class Game < ActiveRecord::Base
   belongs_to :user
   belongs_to :word

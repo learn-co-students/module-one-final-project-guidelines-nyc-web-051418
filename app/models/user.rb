@@ -1,3 +1,5 @@
+#this file holds the User class and its class methods related to CRUD players
+
 class User < ActiveRecord::Base
   has_many :games
   has_many :words, through: :games

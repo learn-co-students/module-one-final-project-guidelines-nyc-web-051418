@@ -21,9 +21,9 @@ Run 'ruby bin/run.rb'
 https://medium.com/@a.carreras.c/cli-game-f3876687de53
 
 ## Demo video
-<iframe width="960" height="720" src="https://www.useloom.com/share/3836eb75c6064cbcbfa6fb1304c6bdd1" frameborder="0 allowfullscreen></iframe>
+https://www.useloom.com/share/3836eb75c6064cbcbfa6fb1304c6bdd1
 
 
 License:
 
-This project is poblic domain - see the LICENSE.html file for details.
+This project is under a MIT license - see the LICENSE.html file for details.

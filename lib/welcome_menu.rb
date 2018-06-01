@@ -1,3 +1,5 @@
+#this file holds all the methods related to the user flow through the app.
+
 def start_player
   player_name = PROMPT.ask('What is your name?', default: ENV['USER']).downcase
   User.save_login_user(player_name)
@@ -42,7 +44,6 @@ def setting_options
       User.update_user_name
   end
 end
-
 
 def set_up_time_settings
   time = PROMPT.select("#{User.login_user.capitalize}, select how much time you want to play:", %w[10\ seconds 30\ seconds 1\ minute 2\ minutes])

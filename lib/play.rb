@@ -1,3 +1,5 @@
+#this file holds all the methods related to the game logic.
+
 def gets_timed_input(game, anagram_array)
   varlong = []
   begin
