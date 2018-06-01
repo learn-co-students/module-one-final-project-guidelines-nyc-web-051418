@@ -8,6 +8,8 @@ end
 def menu
   puts "\n"
   puts "Menu"
+  puts "\n"
+  puts "\n"
   puts "Please select from the following options:"
   puts "Press 1 for Drink Menu"
   puts "Press 2 for Ingredient List"
@@ -69,17 +71,13 @@ def all_ingredient_names
     puts "\n"
   elsif answer == "0"
     menu
+  else
+    puts "Invalid input. Try again."
+    all_ingredient_names
   end
 end
 
-def get_glass_types
-  x = Drink.all.map { |drink| drink.glass }
-  y = x.uniq.sort
-  c = y.map {|x| x.split}
-  v = c.map{|c| c.map{|x| x.capitalize}.join(" ")}
-  puts "\n"
-  puts v.uniq
-end
+
 
 def get_recipe_by_drink_name(name)
 
@@ -247,10 +245,63 @@ def get_drink_name_by_ingredient
     puts "\n"
     get_drink_name_by_ingredient
   elsif answer == "0"
+    puts "\n"
     menu
   else
     puts "\n"
     puts "Invalid input. Try again."
     get_drink_name_by_ingredient
+  end
+end
+
+def get_glass_types
+  # x = Drink.all.map { |drink| drink.glass }
+  # y = x.uniq.sort
+  # c = y.map {|x| x.split}
+  # v = c.map{|c| c.map{|x| x.capitalize}.join(" ")}
+  # puts "\n"
+  # puts v.uniq
+  # puts "\n"
+  # find_drink_by_glass
+  puts "\n"
+  drinks = Drink.all.map { |x| x.glass }
+  puts drinks.map { |drink| drink.split(" ").map { |word| word.capitalize }.join(" ") }.uniq.sort
+  puts "\n"
+  find_drink_by_glass
+end
+
+def find_drink_by_glass
+  puts "Input your glass type:"
+  puts "\n"
+  answer = gets.chomp
+  lower_case_answer = answer.split
+  lower = lower_case_answer[0] + " " + lower_case_answer[1].downcase
+
+  drinks = Drink.all.where(glass: answer || lower)
+  # binding.pry
+  puts "\n"
+  puts drinks.map { |drink| drink.name }.sort
+  puts "\n"
+  puts "Press 1 to input a drink name"
+  puts "Press 2 to select a different glass"
+  puts "Press 0 to go back to menu"
+  puts "\n"
+  input = gets.chomp
+
+  if input == "1"
+    puts "Type in the drink name"
+    drink_input = gets.chomp
+    # get_recipe_by_drink_name(drink_input)
+    # drinks = Drink.all.where(glass: answer && lower_case_answer)
+    #
+    # puts drinks.map { |drink| drink.name }.sort
+  elsif input == "2"
+    get_glass_types
+    # find_drink_by_glass
+  elsif input == "0"
+    puts "\n"
+    menu
+  else
+    puts "Invalid input. Try again."
   end
 end
