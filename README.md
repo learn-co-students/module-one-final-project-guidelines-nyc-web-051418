@@ -1,13 +1,13 @@
 # CRAZY ANAGRAMS
-##by Alberto Carreras
+## by Alberto Carreras
 
 Crazy Anagrams is a Command Line Interface word game where the player has to find as many words as they can within letter strings or other words. Words can only be more than one letter.
 
-###Scoring
+### Scoring
 Each correct anagram is given 1 point for each letter in the word they found.
 Have fun and check out the scoreboard for the top scores and top user scores!
 
-###Settings
+### Settings
 Select the time length for your games.
 Change the player name.
 
