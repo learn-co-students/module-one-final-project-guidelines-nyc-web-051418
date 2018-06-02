@@ -42,6 +42,8 @@ def setting_options
       set_up_time_settings
     when "Player name"
       User.update_user_name
+    when "Menu"
+      menu_option
   end
 end
 
