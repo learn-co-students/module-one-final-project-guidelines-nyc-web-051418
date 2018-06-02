@@ -1,4 +1,5 @@
 #this file holds the Word class and its class method to persist words in the database
+
 class Word < ActiveRecord::Base
   has_many :games
   has_many :users, through: :games
