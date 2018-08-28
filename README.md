@@ -14,6 +14,7 @@ Run 'ruby bin/run.rb'
 
 <iframe width="960" height="720" src="https://www.useloom.com/embed/8f64a04c9493405b80886ba1b5c6c0cc" frameborder="0 allowfullscreen></iframe>
 
+### video: https://www.useloom.com/embed/8f64a04c9493405b80886ba1b5c6c0cc
 
 License:
 
